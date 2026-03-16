@@ -1,0 +1,36 @@
+13:49:50 **** Incremental Build of configuration Debug for project hhh ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+22:07:46 **** Auto Build of configuration Debug for project hhh ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hhh_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../src/helloworld.c:9:0:
+../../hhh_bsp/ps7_cortexa9_0/include/xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:212:21: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+                     while(XAxiDma_Busy(&AxiDma,XAXIDMA_DEVICE_TO_DMA));
+                     ^~~~~
+../src/helloworld.c:214:22: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+                      xil_printf("[FS] Writing \"%s\"...\n\r", OUTPUT_FILE);
+                      ^~~~~~~~~~
+Finished building: ../src/helloworld.c
+ 
+Building target: hhh.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hhh_bsp/ps7_cortexa9_0/lib -o "hhh.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group
+Finished building target: hhh.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size hhh.elf  |tee "hhh.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 113080	   3464	 128240	 244784	  3bc30	hhh.elf
+Finished building: hhh.elf.size
+ 

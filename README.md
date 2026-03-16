@@ -1,4 +1,4 @@
-"# Vivado-Project" 
+
 # Sobel Edge Detection on Zynq
 
 ## Description
